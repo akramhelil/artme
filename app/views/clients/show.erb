@@ -1,0 +1,20 @@
+
+  <caption> <h1>Client Profile </h1></caption>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+    </tr>
+    <tr>
+      <td> <%= @client.fullname%></td>
+      <td> <%= @client.email%>  </td>
+      <td> <%= @client.address%>  </td>
+    </tr>
+  </table>
+
+  <p><%= link_to '<button type = "button">Edit</button>'.html_safe, edit_client_path %>
+
+  <%= button_to "delete", @client, {method: :delete, data: { confirm: "Are you sure?"}} %>
+  </p>
