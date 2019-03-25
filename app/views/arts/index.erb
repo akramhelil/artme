@@ -1,0 +1,11 @@
+
+<h1>Arts</h1>
+<li>
+<% @arts.each do |a|%>
+
+<h2><%= a.img_url %></h2>
+<h2><%= a.title %></h2>
+<h3><%= a.price %></h3>
+<h3><%= link_to a.artist.fullname, artist_path %></h3>
+</li>
+  <%end%>
