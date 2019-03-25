@@ -1,5 +1,7 @@
 class ArtistsController < ApplicationController
+  
   before_action :find_artist, only:[:show, :edit, :update, :destroy]
+
   def index
     @artists = Artist.all
   end
@@ -10,7 +12,6 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    # byebug
     @artist = Artist.new(artist_params)
     if @artist.save
       redirect_to artist_path(@artist.id)
@@ -24,12 +25,10 @@ class ArtistsController < ApplicationController
   end
 
   def edit
-
     render :edit
   end
 
   def update
-
     @artist.update(artist_params)
     @artist.save
     redirect_to artist_path

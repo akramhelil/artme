@@ -1,0 +1,18 @@
+<h1> Art Show </h1>
+  <div class="" id="img">
+
+
+    <li>
+<img src="<%= @art.img_url %>" alt="">
+
+    <p><%= label_tag "Title: " %>
+    <%= @art.title %></p>
+    <p><%= label_tag "Price: " %>
+    <%= @art.price %></p>
+
+    <p><%= label_tag "Description: " %>
+    <%= @art.descrption %></p>
+
+    by: <%= link_to @art.artist.frist_name, artist_path %>
+    </li>
+  </div>
