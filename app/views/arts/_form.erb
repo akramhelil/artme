@@ -1,0 +1,33 @@
+
+<%= form_for @art do |f| %>
+<% if @art.errors.any?%>
+<div class="" id="error_explanation">
+      <h2> <%=pluralize(@art.errors.count, "error") %> prohibited from being saved:</h2>
+      <ul>
+          <%@art.errors.full_messages.each do |msg|%>
+          <li><%= msg %></li>
+          <%end%>
+      </ul>
+      </div>
+  <%end%>
+
+ <%=f.label :title%><br>
+ <%= f.text_field :title %><br>
+
+ <%=f.label :artist_name%><br>
+ <%= f.collection_select :artist_id, Artist.all, :id, :first_name, prompt:true %><br>
+
+ <%=f.label :descrption%><br>
+ <%= f.text_area :descrption %><br>
+
+ <%=f.label :price%><br>
+ <%= f.text_field :price %><br>
+
+ <%=f.label :est_date%><br>
+ <%= f.date_field :est_date, :placeholder => 'dd/mm/yyyy' %><br>
+
+ <%=f.label :img_url%><br>
+ <%= f.text_field :img_url%><br>
+
+  <%= f.submit %>
+<% end %>

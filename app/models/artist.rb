@@ -4,6 +4,8 @@ class Artist < ApplicationRecord
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
 
+
+=======
   before_validation :make_capitalized
 
 
@@ -20,6 +22,7 @@ class Artist < ApplicationRecord
     self.first_name = self.first_name.titlecase
     self.last_name = self.last_name.titlecase
   end
+
 
   def fullname
     self.first_name + " " + self.last_name

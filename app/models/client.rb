@@ -8,8 +8,11 @@ class Client < ApplicationRecord
   before_validation :make_capitalized
 
   def is_capitalized
-    if name.split.any?{|w|w[0].upcase != w[0]}
-      errors.add(:name, " must be capitalized")
+    if first_name.split.any?{|w|w[0].upcase != w[0]}
+      errors.add(:first_name, " must be capitalized")
+    end
+    if last_name.split.any?{|w|w[0].upcase != w[0]}
+      errors.add(:last_name, " must be capitalized")
     end
   end
 
