@@ -1,11 +1,9 @@
 class Artist < ApplicationRecord
   has_many :arts
-  
+
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
 
-
-=======
   before_validation :make_capitalized
 
 

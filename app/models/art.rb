@@ -11,6 +11,8 @@ class Art < ApplicationRecord
 
 
   validates :title, :descrption, :price, :est_date, :img_url, presence: true
-  validates :title, uniqness: { scope: [:artist_id], message: "The title is already taken."}
+  validates :title, uniqueness: { scope: [:artist_id], message: "The title is already taken."}
+
+  
 
 end

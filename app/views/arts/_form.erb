@@ -23,8 +23,11 @@
  <%=f.label :price%><br>
  <%= f.text_field :price %><br>
 
- <%=f.label :est_date%><br>
+ <%=f.label "Created Date: "%><br>
  <%= f.date_field :est_date, :placeholder => 'dd/mm/yyyy' %><br>
+
+ <%=f.label :time_required %><br>
+ <%= f.number_field :time_required %> Days <br>
 
  <%=f.label :img_url%><br>
  <%= f.text_field :img_url%><br>

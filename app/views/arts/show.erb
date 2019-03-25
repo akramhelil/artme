@@ -2,17 +2,26 @@
   <div class="" id="img">
 
 
-    <li>
+
 <img src="<%= @art.img_url %>" alt="">
 
     <p><%= label_tag "Title: " %>
     <%= @art.title %></p>
+
     <p><%= label_tag "Price: " %>
     <%= @art.price %></p>
 
     <p><%= label_tag "Description: " %>
     <%= @art.descrption %></p>
 
-    by: <%= link_to @art.artist.frist_name, artist_path %>
-    </li>
+    <p><%= label_tag "Created Date: " %>
+    <%= @art.est_date.strftime("%B %d, %Y") %></p>
+
+    <p><%= label_tag "Time Required:" %>
+    <%= @art.time_required %> Days</p>
+
+
+    by: <%= link_to @art.artist.first_name, artist_path %>
+    <!-- add a button to add it to the cart -->
+    <!-- add a button to add it to the cart -->
   </div>
