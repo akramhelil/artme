@@ -21,7 +21,8 @@
     <%= @art.time_required %> Days</p>
 
 
-    by: <%= link_to @art.artist.first_name, artist_path %>
+    by: <%= link_to @art.artist.first_name, artist_path(@art.artist.id) %>
+    <%= button_to "Add to Cart" , {method: :patch,  params: {id: @art.id} } %>
     <!-- add a button to add it to the cart -->
-    <!-- add a button to add it to the cart -->
+
   </div>
