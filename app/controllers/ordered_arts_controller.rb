@@ -1,0 +1,2 @@
+class OrderedArtsController < ApplicationController
+end
