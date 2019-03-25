@@ -1,0 +1,15 @@
+<h1>Artist Show</h1>
+
+<%= label_tag "First Name: " %>
+<%= @artist.first_name %>
+
+<%= label_tag "Last Name: " %>
+<%= @artist.last_name %>
+
+  <%= label_tag "Email: " %>
+  <%= @artist.email %>
+
+  <%=label_tag "Biography: " %>
+  <%= @artist.bio %>
+  <%= button_to "Delete", @artist , {method: :delete, data: { confirm: "Are you sure?" } }%>
+  <p><%= link_to '<button type = "button">Edit</button>'.html_safe, edit_artist_path %>
