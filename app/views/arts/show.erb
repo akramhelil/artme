@@ -1,7 +1,3 @@
-<h1> Art Show </h1>
-  <div class="" id="img">
-
-
 
 <img src="<%= @art.img_url %>" alt="">
 
@@ -20,9 +16,9 @@
     <p><%= label_tag "Time Required:" %>
     <%= @art.time_required %> Days</p>
 
+    <%= link_to @art.artist.first_name, artist_path(@art.artist.id) %>
 
-    by: <%= link_to @art.artist.first_name, artist_path(@art.artist.id) %>
-    <%= button_to "Add to Cart" , {method: :patch,  params: {id: @art.id} } %>
+    <%= button_to "Add to Cart", '/add_to_cart', {method: :patch,  params: {id: @art.id, name: @art.title, price: @art.price} } %>
     <!-- add a button to add it to the cart -->
 
   </div>

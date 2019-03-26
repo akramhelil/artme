@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   # before_action :require_login
 
 
@@ -12,6 +13,8 @@ class ApplicationController < ActionController::Base
    @current_artist ||= Artist.find(session[:client_id])
  end
 
+  helper_method :cart
+
   def cart
     session[:cart] ||= []
   end
@@ -20,7 +23,8 @@ class ApplicationController < ActionController::Base
     cart << art_id
   end
 
-  def find_the_art
+  def find_the_arts
+
     @arts_in_the_cart = Art.find(cart)
   end
 
