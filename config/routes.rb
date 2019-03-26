@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
+  get 'carts/index'
   resources :ordered_arts
   resources :orders
   resources :arts
   resources :clients
   resources :artists
 
-  patch '/add_to_cart', to:"cart#update"
+  # root "welcomes#index"
 
-  post '/empty_the_cart', to:"cart#empty"
+  patch '/add_to_cart', to:"carts#update"
+
+  get '/empty_the_cart', to:"carts#empty"
 
 
 
