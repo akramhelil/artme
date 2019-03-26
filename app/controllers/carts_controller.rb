@@ -5,6 +5,7 @@ class CartsController < ApplicationController
 # byebug
     flash[:notice] = "#{params[:title]} is in your cart!"
     add_art_to_the_cart(params[:id])
+    
     redirect_to request.referrer
   end
 

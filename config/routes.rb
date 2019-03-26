@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
 
 
+  get '/logins/artist', to:'logins#artist_login'
+  get '/logins/client', to:'logins#client_login'
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -33,16 +33,13 @@ class ArtsController < ApplicationController
         end
       end
 
-      def destroy
-        set_art.destroy
-        flash[:notice] = "deleted"
-        redirect_to "/arts"
-      end
 
-      # def add
-      # cart << params[:art]
-      # render :index
-      # end
+    def destroy
+      set_art.destroy
+      flash[:notice] = "deleted"
+      redirect_to "/arts"
+    end
+
 
 
 
@@ -56,10 +53,4 @@ class ArtsController < ApplicationController
     def set_art
       @art = Art.find_by(id: params[:id])
     end
-
-
-
-
-
-
 end
