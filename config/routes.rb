@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   post '/empty_the_cart', to:"cart#empty"
 
+  get '/logins/artist', to:'logins#artist_login'
+  get '/logins/client', to:'logins#client_login'
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action :require_login
-  
+  # before_action :require_login
+
 
   def current_client#added in the current client
     return unless session[:client_id]
@@ -24,11 +24,11 @@ class ApplicationController < ActionController::Base
     @arts_in_the_cart = Art.find(cart)
   end
 
-  def require_login
-    unless logged_in?
-      flash[:error] = "You must be logged in to access this section"
-      redirect_to new_login_url # halts request cycle
-    end
-  end
+  # def require_login
+  #   unless logged_in?
+  #     flash[:error] = "You must be logged in to access this section"
+  #     redirect_to new_login_url # halts request cycle
+  #   end
+  # end
 
 end
