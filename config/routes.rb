@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'carts/index'
   resources :ordered_arts
+  # post "/ordered_arts/payment_page", to:'orderedarts#create'
+  # get '/ordered_arts/', to:"orderedarts#index"
   resources :orders
   resources :arts
   resources :clients
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   patch '/add_to_cart', to:"carts#update"
 
   get '/empty_the_cart', to:"carts#empty"
+
 
 
 
