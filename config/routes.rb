@@ -6,11 +6,19 @@ Rails.application.routes.draw do
   resources :clients
   resources :artists
 
+  root 'welcome#index'
+  get '/about', to: "welcome#about"
+  # get '/clients/login', to: "sessions#client_login"
+  # get '/artists/login', to: "sessions#artist_login"
+  post '/login', to: "sessions#create"
+  post '/logout', to: "sessions#destroy"
+
   # root "welcomes#index"
 
   patch '/add_to_cart', to:"carts#update"
 
   get '/empty_the_cart', to:"carts#empty"
+
 
 
 
