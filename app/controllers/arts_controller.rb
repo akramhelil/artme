@@ -32,14 +32,11 @@ class ArtsController < ApplicationController
         end
       end
 
-      def destroy
-        set_art.destroy
-        flash[:notice] = "deleted"
-        redirect_to "/arts"
-      end
-
-
-
+    def destroy
+      set_art.destroy
+      flash[:notice] = "deleted"
+      redirect_to "/arts"
+    end
 
     private
 
@@ -50,10 +47,4 @@ class ArtsController < ApplicationController
     def set_art
       @art = Art.find_by(id: params[:id])
     end
-
-
-
-
-
-
 end

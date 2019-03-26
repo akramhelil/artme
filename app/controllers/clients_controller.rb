@@ -38,9 +38,6 @@ before_action :set_client, only: [:show, :edit, :update]
       redirect_to "/clients"
     end
 
-
-
-
   private
 
   def client_params
@@ -50,8 +47,5 @@ before_action :set_client, only: [:show, :edit, :update]
   def set_client
     @client = Client.find_by(id: params[:id])
   end
-
-
-
 
 end
