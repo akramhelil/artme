@@ -1,3 +1,10 @@
+<h2>What's in Your Cart:</h2>
+<h3>Your Cart: </h3>
+  <% @arts_in_the_cart.each do |art|%>
+  <%= art.title %>
+  <%end%>
+  <%= button_to "empty the cart", '/empty_the_cart', {method: :get} %>
+
 <h1> Art Show </h1>
   <div class="" id="img">
 
@@ -20,9 +27,9 @@
     <p><%= label_tag "Time Required:" %>
     <%= @art.time_required %> Days</p>
 
+    <%= link_to @art.artist.first_name, artist_path(@art.artist.id) %>
 
-    by: <%= link_to @art.artist.first_name, artist_path(@art.artist.id) %>
-    <%= button_to "Add to Cart" , {method: :patch,  params: {id: @art.id} } %>
+    <%= button_to "Add to Cart", '/add_to_cart', {method: :patch,  params: {id: @art.id, name: @art.title} } %>
     <!-- add a button to add it to the cart -->
 
   </div>

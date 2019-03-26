@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     cart << art_id
   end
 
-  def find_the_art
+  def find_the_arts
     @arts_in_the_cart = Art.find(cart)
   end
 end

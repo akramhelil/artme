@@ -1,5 +1,6 @@
 class ArtsController < ApplicationController
   before_action :set_art, only: [:show, :edit, :update]
+  before_action :find_the_arts, only: :show
 
     def show
     end
@@ -37,6 +38,11 @@ class ArtsController < ApplicationController
         flash[:notice] = "deleted"
         redirect_to "/arts"
       end
+
+      # def add
+      # cart << params[:art]
+      # render :index
+      # end
 
 
 
