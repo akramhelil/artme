@@ -1,0 +1,11 @@
+<h2>What's in Your Cart:</h2>
+<h3>Your Cart: </h3>
+<ol>
+  <% @arts_in_the_cart.each do |art|%>
+  <li><%= art.title %>  $<%= art.price %></li>
+
+  <%end%>
+  <%= button_to "Check Out", '/ordered_arts/new', {method: :get}  %>
+  <%= button_to "empty the cart", '/empty_the_cart', {method: :get} %>
+  params.inspect
+</ol>

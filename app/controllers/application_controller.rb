@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  helper_method :cart
   def cart
     session[:cart] ||= []
   end
@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_the_arts
+
     @arts_in_the_cart = Art.find(cart)
   end
 end
