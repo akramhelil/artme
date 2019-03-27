@@ -26,7 +26,6 @@ class ClientsController < ApplicationController
   end
 
   def update
-    require_login
       if @client.update(client_params)
         redirect_to @client
       else
@@ -35,7 +34,6 @@ class ClientsController < ApplicationController
     end
 
     def destroy
-      require_login
       set_client.destroy
       flash[:notice] = "deleted"
       redirect_to "/clients"

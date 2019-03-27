@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
     if !@artist.nil? && @artist.authenticate(params[:password]) && @artist
       session[:artist_id] = @artist.id
       current_artist
-      redirect_to new_art_path
+      redirect_to artist_path(@artist.id)
       flash[:notice] = "Wow Welcome again, you logged in as #{@artist.first_name}"
     else
       flash[:notice] = "Artist Invalid Username or Password"

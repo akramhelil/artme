@@ -17,8 +17,12 @@
     <%= @art.time_required %> Days</p>
 
     <%= link_to @art.artist.first_name, artist_path(@art.artist.id) %>
-
+    <% if current_client%>
     <%= button_to "Add to Cart", '/add_to_cart', {method: :patch,  params: {id: @art.id, name: @art.title, price: @art.price} } %>
-    <!-- add a button to add it to the cart -->
-
+    <% end %>
+    
+    <% if current_artist && session[:artist_id] == @art.artist_id %>
+    <%= button_to "Edit", edit_art_path, {method: :get} %>
+    <%= button_to "Delete", @art , {method: :delete, data: { confirm: "Are you sure?" } }%>    <!-- add a button to add it to the cart -->
+    <% end %>
   </div>

@@ -13,14 +13,9 @@ class ArtsController < ApplicationController
     end
 
     def create
-
-
-
-      # byebug
       @art = Art.new(art_params)
-        if @art.save(:validate => false)
-          #@artists = Artist.all
-      # @art.artist_id = current_artist.id
+      @art.artist_id = current_artist.id
+        if @art.save
           redirect_to "/arts/#{@art.id}"
         else
           render :new

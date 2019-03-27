@@ -11,8 +11,9 @@
 
   <%=label_tag "Biography: " %>
   <%= @artist.bio %>
-  <%= button_to "Delete", @artist , {method: :delete, data: { confirm: "Are you sure?" } }%>
-    <% if current_artist %>
+    <% if current_artist && session[:artist_id] == @artist.id %>
+    <%= button_to "Delete", @artist , {method: :delete, data: { confirm: "Are you sure?" } }%>
       <%= link_to '<button type = "button">Edit</button>'.html_safe,
            edit_artist_path %>
+
     <%end %>
