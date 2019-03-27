@@ -16,7 +16,7 @@
     <%= link_to "Artists", '/artists' %>
     <%= link_to "Arts", arts_path %>
 
-    <% if !current_client && !current_artist%>
+    <% if !current_client && !current_artist %>
       <%= link_to "Log In", '/login', method: "get" %>
     <%elsif current_artist%>
     <%= link_to "Log Out", '/logout/artist', method: "delete" %>

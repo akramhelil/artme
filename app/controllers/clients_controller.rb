@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :authorized_client
+  before_action :authorized_client, except: :new
   before_action :set_client, only: [:show, :edit, :update]
 
   def show
