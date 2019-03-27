@@ -1,5 +1,13 @@
 <h1>Artists </h1>
 
+<%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+ %>
+
 <% @artists.each do |artist| %>
-<ol id="artist_list"><%=link_to artist.fullname, artist_path(artist.id) %></ol>
+<div class="card">
+  <%= image_tag artist.pro_pic_url %>
+  <br>
+  <h3><%=link_to artist.fullname, artist_path(artist.id) %></h3>
+</div>
+
   <% end %>

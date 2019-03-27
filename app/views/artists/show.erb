@@ -1,6 +1,9 @@
 <h1>Artist Show</h1>
 
 <p>
+  <%= image_tag @artist.pro_pic_url %>
+  <br>
+  <br>
 <%= label_tag "Name: " %>
 <%= @artist.fullname %>
 
@@ -12,10 +15,19 @@
   <%= @artist.location %>
 
 </p>
+
   <%= label_tag "Artworks for sale: " %> (<%=@artist.arts.length %>)
+
   <br>
   <% @artist.arts.each do |a| %>
-  <%=link_to a.title, a%>
+  <ul id="artist_artworks">
+
+  <%= image_tag a.img_url %>
+  </ul>
+  <br>
+  <p>
+    <%=link_to a.title, a%>
+  </p>
   <%end%>
 
 </p>

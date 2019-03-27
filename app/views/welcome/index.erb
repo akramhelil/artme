@@ -2,17 +2,19 @@
 <br>
 <h3>Featured Artists</h3>
 <% @artists.each do  %>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <% end %>
 
 <br>
 <h3>Featured Arts</h3>
+
 <% @arts.each do |a|%>
-  <ol>
-    <%= image_tag "#{a.img_url}" %>
-    <p></p>
-    <p><%= a.title%></p>
+<div class="row">
+  <div class="column">
+    <p><%= image_tag "#{a.img_url}" %></p>
+    <p><%=link_to a.title, a%></p>
     <p><%= a.artist.fullname%></p>
-    <p>$<%= a.price%></p>
-  </ol>
+  </div>
+
 <% end %>
