@@ -1,11 +1,16 @@
 class ArtsController < ApplicationController
   before_action :set_art, only: [:show, :edit, :update]
   before_action :find_the_arts, only: :show
-  # before_action :authorized_artist, only: [:edit, :new, :update, :destroy]
+
 
 
     def index
-      @arts = Art.all
+      search_word = params[:search]
+      @arts = Art.search(search_word)
+      # arr = @arts.select { |art| art.title.downcase == search_word.downcase }
+      # if arr.empty?
+      #   flash[:notice] = "No such a thing exist!"
+      # end
     end
 
     def new
@@ -48,7 +53,7 @@ class ArtsController < ApplicationController
     private
 
     def art_params
-      params.require(:art).permit(:title, :artist_id, :descrption, :price, :est_date, :img_url, :time_required)
+      params.require(:art).permit(:title, :artist_id, :descrption, :price, :est_date, :img_url, :time_required, :search)
     end
 
     def set_art

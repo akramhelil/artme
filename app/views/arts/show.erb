@@ -4,8 +4,11 @@
     <p><%= label_tag "Title: " %>
     <%= @art.title %></p>
 
+    <p><%= label_tag "Artist Name: " %>
+    <%= link_to @art.artist.fullname, artist_path(@art.artist.id) %>
+
     <p><%= label_tag "Price: " %>
-    <%= @art.price %></p>
+    $<%= @art.price %></p>
 
     <p><%= label_tag "Description: " %>
     <%= @art.descrption %></p>
@@ -16,11 +19,10 @@
     <p><%= label_tag "Time Required:" %>
     <%= @art.time_required %> Days</p>
 
-    <%= link_to @art.artist.first_name, artist_path(@art.artist.id) %>
     <% if current_client%>
     <%= button_to "Add to Cart", '/add_to_cart', {method: :patch,  params: {id: @art.id, name: @art.title, price: @art.price} } %>
     <% end %>
-    
+
     <% if current_artist && session[:artist_id] == @art.artist_id %>
     <%= button_to "Edit", edit_art_path, {method: :get} %>
     <%= button_to "Delete", @art , {method: :delete, data: { confirm: "Are you sure?" } }%>    <!-- add a button to add it to the cart -->

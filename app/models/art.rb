@@ -17,4 +17,25 @@ class Art < ApplicationRecord
 
 
 
+  def self.search(word)
+    if word
+      word_upcase = word.capitalize
+      art = Art.find_by(title: word_upcase)
+      artist = Artist.find_by(first_name: word_upcase)
+          if art
+            self.where(art_id: art)
+          else
+            Art.all
+          end
+          if artist
+            Art.where(artist_id: artist)
+          else
+            Art.all
+          end
+      else
+        Art.all
+    end
+  end
+
+
 end

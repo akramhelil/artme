@@ -1,12 +1,16 @@
 
-
+<%=form_tag(arts_path, method: :get) do%>
+<%=text_field_tag(:search,params[:search])%>
+<%=submit_tag ("Search")%>
+<%end%>
 
 <h1>Arts List</h1>
+<%= flash[:notice]%>
 
 <% @arts.each do |a|%>
 <img src="<%= a.img_url %>" alt="">
 <h2><%=link_to a.title, a %></h2>
-<h3><%= a.price %></h3>
-<h3><%= link_to a.artist.first_name, artist_path(a.artist.id) %></h3>
+<h3><%= link_to a.artist.fullname, artist_path(a.artist.id) %></h3>
+<h3>$ <%= a.price %></h3>
 
   <%end%>
