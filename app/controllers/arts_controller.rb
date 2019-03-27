@@ -1,6 +1,7 @@
 class ArtsController < ApplicationController
   before_action :set_art, only: [:show, :edit, :update]
   before_action :find_the_arts, only: :show
+  # before_action :authorized_artist, only: [:edit, :new, :update, :destroy]
 
 
     def index
@@ -12,9 +13,14 @@ class ArtsController < ApplicationController
     end
 
     def create
+
+
+
       # byebug
       @art = Art.new(art_params)
         if @art.save(:validate => false)
+          #@artists = Artist.all
+      # @art.artist_id = current_artist.id
           redirect_to "/arts/#{@art.id}"
         else
           render :new
@@ -25,6 +31,7 @@ class ArtsController < ApplicationController
     end
 
     def edit
+
     end
 
     def update

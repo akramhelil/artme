@@ -1,6 +1,7 @@
 class ArtistsController < ApplicationController
 
   before_action :set_artist, only:[:show, :edit, :update, :destroy]
+  before_action :authorized, only: [:edit, :update, :destroy]
 
   def index
     @artists = Artist.all
@@ -42,8 +43,9 @@ class ArtistsController < ApplicationController
 
   private
 
-  def artist_params
-    params.require(:artist).permit(:first_name, :last_name, :password, :email, :location, :bio)
+
+    params.require(:artist).permit(:first_name, :last_name, :password, :password_confirmation, :email, :location, :bio)
+
   end
 
   def set_artist

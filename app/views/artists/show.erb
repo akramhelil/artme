@@ -12,4 +12,7 @@
   <%=label_tag "Biography: " %>
   <%= @artist.bio %>
   <%= button_to "Delete", @artist , {method: :delete, data: { confirm: "Are you sure?" } }%>
-  <p><%= link_to '<button type = "button">Edit</button>'.html_safe, edit_artist_path %>
+    <% if current_artist %>
+      <%= link_to '<button type = "button">Edit</button>'.html_safe,
+           edit_artist_path %>
+    <%end %>

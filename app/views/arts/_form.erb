@@ -15,7 +15,8 @@
  <%= f.text_field :title %><br>
 
  <%=f.label :artist_name%><br>
- <%= f.collection_select :artist_id, Artist.all, :id, :first_name, prompt:true %><br>
+ <%= f.collection_select :artist_id, Artist.all , :id, :first_name, prompt:true %><br>
+ <br>
 
  <%=f.label :descrption%><br>
  <%= f.text_area :descrption %><br>

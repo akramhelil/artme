@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
-  # before_action :require_login
-before_action :set_client, only: [:show, :edit, :update]
+  before_action :authorized_client
+  before_action :set_client, only: [:show, :edit, :update]
 
   def show
   end
