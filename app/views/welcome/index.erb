@@ -7,4 +7,12 @@
 
 <br>
 <h3>Featured Arts</h3>
-<% @arts.each do  %>
+<% @arts.each do |a|%>
+  <ol>
+    <%= image_tag "#{a.img_url}" %>
+    <p></p>
+    <p><%= a.title%></p>
+    <p><%= a.artist.fullname%></p>
+    <p>$<%= a.price%></p>
+  </ol>
+<% end %>
