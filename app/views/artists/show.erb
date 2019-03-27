@@ -1,19 +1,33 @@
 <h1>Artist Show</h1>
 
-<%= label_tag "First Name: " %>
-<%= @artist.first_name %>
+<p>
+<%= label_tag "Name: " %>
+<%= @artist.fullname %>
 
-<%= label_tag "Last Name: " %>
-<%= @artist.last_name %>
+</p>
+  <%= label_tag "Artme Artist Since" %>  <%= @artist.start_date %>
 
+</p>
+  <%= label_tag "Location: " %>
+  <%= @artist.location %>
+
+</p>
+  <%= label_tag "Artworks for sale: " %> (<%=@artist.arts.length %>)
+  <br>
+  <% @artist.arts.each do |a| %>
+  <%=link_to a.title, a%>
+  <%end%>
+
+</p>
   <%= label_tag "Email: " %>
-  <%= @artist.email %>
-
+  <%= mail_to @artist.email %>
+</p>
   <%=label_tag "Biography: " %>
   <%= @artist.bio %>
     <% if current_artist && session[:artist_id] == @artist.id %>
+</p>
     <%= button_to "Delete", @artist , {method: :delete, data: { confirm: "Are you sure?" } }%>
-      <%= link_to '<button type = "button">Edit</button>'.html_safe,
-           edit_artist_path %>
-
+    <%= link_to '<button type = "button">Edit</button>'.html_safe,
+           edit_artist_path(@artist.id) %>
+   <%= link_to '<button type = "button">New Art</button>'.html_safe, new_art_path %>
     <%end %>

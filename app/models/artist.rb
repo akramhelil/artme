@@ -28,4 +28,8 @@ class Artist < ApplicationRecord
     self.first_name + " " + self.last_name
   end
 
+  def start_date
+    self.created_at.strftime('%B %Y')
+  end
+
 end

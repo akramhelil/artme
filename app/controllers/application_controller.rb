@@ -1,9 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :cart, :current_client, :current_artist
 
-
-
-
   def current_client#added in the current client
     return unless session[:client_id]
     @current_client ||= Client.find(session[:client_id])
