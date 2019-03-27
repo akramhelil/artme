@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
+  helper_method :cart
 
-  # before_action :require_login
 
 
   def current_client#added in the current client
@@ -13,26 +13,30 @@ class ApplicationController < ActionController::Base
    @current_artist ||= Artist.find(session[:client_id])
  end
 
-  helper_method :cart
 
   def cart
     session[:cart] ||= []
   end
 
-  def add_art_to_the_cart(art_id)
-    cart << art_id
+  def add_art_to_the_cart(art)
+    cart << art
   end
 
   def find_the_arts
-
-    @arts_in_the_cart = Art.find(cart)
+    # byebug
+    @arts_in_the_cart = cart
   end
 
-  # def require_login
-  #   unless logged_in?
-  #     flash[:error] = "You must be logged in to access this section"
-  #     redirect_to new_login_url # halts request cycle
-  #   end
-  # end
+  def client_logged_in?
+    !!current_client
+  end
+
+  def authorized
+    if !client_logged_in?
+        redirect_to login_path
+    end
+  end
+
+
 
 end

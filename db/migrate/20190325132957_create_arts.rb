@@ -7,6 +7,7 @@ class CreateArts < ActiveRecord::Migration[5.2]
       t.float :price
       t.datetime :est_date
       t.string :img_url
+      t.integer :time_required
 
       t.timestamps
     end

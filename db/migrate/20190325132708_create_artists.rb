@@ -6,6 +6,7 @@ class CreateArtists < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :location
       t.text :bio
+      t.string :password_digest
 
       t.timestamps
     end
