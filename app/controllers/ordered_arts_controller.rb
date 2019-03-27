@@ -1,12 +1,13 @@
 class OrderedArtsController < ApplicationController
 before_action :find_the_arts, only: [:index, :new]
 
-
   def new
-    cart.each do |art|
-      cart_arts = OrderedArt.new(art_id: art.to_i)
+    # byebug
+      cart.each do |art|
+      cart_arts = OrderedArt.new(art_id: art["id"])
+      cart_arts.client_id = session[:client_id]
       cart_arts.save(:validate => false)
-    end
+      end
     render :new
   end
 
@@ -14,7 +15,7 @@ before_action :find_the_arts, only: [:index, :new]
   #show the items in the shopping cart when hit the
   end
 
-  
+
   # def index
   #   byebug
   #   @orders = Client.orders

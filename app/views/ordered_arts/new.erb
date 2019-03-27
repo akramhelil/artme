@@ -1,12 +1,12 @@
 <h1>Payment page</h1>
-  <% price = @arts_in_the_cart.map {|a| a.price } %>
+  <% price = @arts_in_the_cart.map {|a| a["price"] } %>
 
 <h3>Cart subtotal ( <%= pluralize(cart.length, "item")%> ): $ <%= price.inject(0, :+) %></h3>
-<ol>
+<ul>
   <% @arts_in_the_cart.each do |art|%>
-  <li><%= art.title %>  $<%= art.price %></li>
+  <li><%= art["title"] %>  $<%= art["price"] %></li>
   <%end%>
-</ol>
+</ul>
 
 
 

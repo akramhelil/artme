@@ -13,10 +13,14 @@ class ArtsController < ApplicationController
     end
 
     def create
-      @art = Art.create(art_params)
-      @artists = Artist.all
+
+
+
+      # byebug
+      @art = Art.new(art_params)
+        if @art.save(:validate => false)
+          #@artists = Artist.all
       # @art.artist_id = current_artist.id
-        if @art
           redirect_to "/arts/#{@art.id}"
         else
           render :new
@@ -44,6 +48,7 @@ class ArtsController < ApplicationController
       flash[:notice] = "deleted"
       redirect_to "/arts"
     end
+
 
     private
 
