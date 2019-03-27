@@ -23,5 +23,8 @@ Rails.application.routes.draw do
   delete '/logout', to:'sessions#client_logout'
   post '/login', to:'sessions#client_login'
 
+  #order_history
+  get 'clients/:id/order_history', to:'sessions#order_history'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
