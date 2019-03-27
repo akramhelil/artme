@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
   end
 
   def artist_new
-
     render :artist_login
   end
 

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   get 'carts/index'
   resources :ordered_arts, only: [:index, :new]
-
-  get '/check_out', to:'carts#check_out'
   resources :arts
   resources :clients
   resources :artists
@@ -12,9 +10,8 @@ Rails.application.routes.draw do
 
 
   patch '/add_to_cart', to:"carts#update"
-
   get '/empty_the_cart', to:"carts#empty"
-
+  get '/check_out', to:'carts#check_out'
 
 
   get '/login/artist', to:'sessions#artist_new'

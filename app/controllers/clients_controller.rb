@@ -26,6 +26,7 @@ before_action :set_client, only: [:show, :edit, :update]
   end
 
   def update
+    require_login
       if @client.update(client_params)
         redirect_to @client
       else
@@ -34,6 +35,7 @@ before_action :set_client, only: [:show, :edit, :update]
     end
 
     def destroy
+      require_login
       set_client.destroy
       flash[:notice] = "deleted"
       redirect_to "/clients"
@@ -42,7 +44,7 @@ before_action :set_client, only: [:show, :edit, :update]
   private
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :password, :password_confirmation, :email, :address)
+    params.require(:client).permit(:first_name, :last_name, :password, :email, :address)
   end
 
   def set_client
