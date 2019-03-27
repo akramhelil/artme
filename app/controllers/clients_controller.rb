@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
-  before_action :authorized_client, except: :new
   before_action :set_client, only: [:show, :edit, :update]
+  before_action :authorized_client, only: [:edit, :update, :destroy]
 
   def show
   end
@@ -42,7 +42,7 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :password, :email, :address)
+    params.require(:client).permit(:first_name, :last_name, :password, :password_confirmation, :email, :address)
   end
 
   def set_client
