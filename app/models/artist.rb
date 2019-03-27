@@ -1,5 +1,7 @@
 class Artist < ApplicationRecord
   has_many :arts
+  has_many :ordered_arts, through: :arts
+  include BCrypt
 
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true

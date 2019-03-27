@@ -1,5 +1,8 @@
 
 <h1>Login</h1>
+
+<h4><%= flash[:notice] %></h4>
+
 <!-- form will POST to ‘/login’ -->
 <%= form_tag(login_path) do %>
  <%= label_tag :email %>
@@ -12,5 +15,3 @@
  <br>
  <%= link_to "Sign Up", new_client_path %>
 <% end %>
-
-<%= link_to "Artist login", 'login/artist' %>

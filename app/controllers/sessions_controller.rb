@@ -1,20 +1,46 @@
 class SessionsController < ApplicationController
+  # skip_before_action :authorized, only: [:new, :client_login]
 
+  def new
 
-  #moved this to the Application Controller
-  # def current_artist
-  #   session[:artist_id] = params[:id]
-  # end
+  end
 
-  def login_attempt
-    authorized_client = Client.authenticate(params[:email],params[:login_password])
-    if authorized_client
-      flash[:notice] = "Wow Welcome again, you logged in as #{authorized_client.first_name}"
-      redirect_to welcome_path
+  def artist_new
+
+    render :artist_login
+  end
+
+  def client_login
+    @client = Client.find_by(email: params[:email])
+    if !@client.nil? && @client.authenticate(params[:password]) && @client
+      session[:client_id] = @client.id
+      redirect_to root_path
+      flash[:notice] = "Wow Welcome again, you logged in as #{@client.first_name}"
     else
       flash[:notice] = "Invalid Username or Password"
-      render logins_client_path
+      redirect_to login_path
     end
   end
-  
+
+
+    def artist_login
+      @artist = Artist.find_by(email: params[:email])
+      if !@artist.nil? && @artist.authenticate(params[:password])
+        session[:artist_id] = @artist.id
+        redirect_to root_path
+        flash[:notice] = "Wow Welcome again, you logged in as #{@artist.first_name}"
+      else
+        flash[:notice] = "Invalid Username or Password"
+        redirect_to login_artist_path
+      end
+
+    end
+
+    def client_logout
+      session.delete(:client_id)
+      flash[:notice] = "Now You are Safely Logged Out, Please Come Again!"
+      redirect_to login_path
+    end
+
+
 end

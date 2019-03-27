@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_210441) do
+ActiveRecord::Schema.define(version: 2019_03_25_140102) do
 
   create_table "artists", force: :cascade do |t|
     t.string "first_name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_210441) do
     t.string "email"
     t.string "location"
     t.text "bio"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,9 +30,9 @@ ActiveRecord::Schema.define(version: 2019_03_25_210441) do
     t.float "price"
     t.datetime "est_date"
     t.string "img_url"
+    t.integer "time_required"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "time_required"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -39,20 +40,14 @@ ActiveRecord::Schema.define(version: 2019_03_25_210441) do
     t.string "last_name"
     t.string "email"
     t.string "address"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "ordered_arts", force: :cascade do |t|
-    t.integer "order_id"
     t.integer "art_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
     t.integer "client_id"
-    t.boolean "complete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

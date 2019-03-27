@@ -1,6 +1,5 @@
 class Client < ApplicationRecord
-  has_many :orders
-  has_many :ordered_arts, through: :orders
+  has_many :ordered_arts
 
   validates :first_name, :last_name, :email, :address, presence: true
   validates :email, uniqueness: true

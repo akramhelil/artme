@@ -2,8 +2,6 @@ class ArtsController < ApplicationController
   before_action :set_art, only: [:show, :edit, :update]
   before_action :find_the_arts, only: :show
 
-    def show
-    end
 
     def index
       @arts = Art.all
@@ -22,6 +20,9 @@ class ArtsController < ApplicationController
         end
     end
 
+    def show
+    end
+    
     def edit
     end
 

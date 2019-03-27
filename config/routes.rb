@@ -1,21 +1,15 @@
 Rails.application.routes.draw do
   get 'carts/index'
-  resources :ordered_arts
-  # post "/ordered_arts/payment_page", to:'orderedarts#create'
-  # get '/ordered_arts/', to:"orderedarts#index"
-  resources :orders
+  resources :ordered_arts, only: [:index, :new]
+
+  get '/check_out', to:'carts#check_out'
   resources :arts
   resources :clients
   resources :artists
 
   root 'welcome#index'
   get '/about', to: "welcome#about"
-  # get '/clients/login', to: "sessions#client_login"
-  # get '/artists/login', to: "sessions#artist_login"
-  post '/login', to: "sessions#create"
-  post '/logout', to: "sessions#destroy"
 
-  # root "welcomes#index"
 
   patch '/add_to_cart', to:"carts#update"
 
@@ -23,8 +17,16 @@ Rails.application.routes.draw do
 
 
 
-  get '/logins/artist', to:'logins#artist_login'
-  get '/logins/client', to:'logins#client_login'
+  get '/login/artist', to:'sessions#artist_new'
+  post '/login/artist', to:'sessions#artist_login'
+
+
+  get '/login', to:'sessions#new'
+  delete '/logout', to:'sessions#client_logout'
+  post '/login', to:'sessions#client_login'
+  post '/logout', to: "sessions#destroy"
+
+
 
 
 

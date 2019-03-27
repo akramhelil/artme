@@ -1,6 +1,6 @@
 <h1>Payment page</h1>
   <% price = @arts_in_the_cart.map {|a| a.price } %>
-  
+
 <h3>Cart subtotal ( <%= pluralize(cart.length, "item")%> ): $ <%= price.inject(0, :+) %></h3>
 <ol>
   <% @arts_in_the_cart.each do |art|%>
@@ -77,6 +77,6 @@
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
         </label>
-        <p><%= link_to '<button type = "button">Continue Checkout</button>'.html_safe, new_order_path %> </p>
+        <p><%= link_to '<button type = "button">Continue Checkout</button>'.html_safe, "/check_out"%> </p>
     </div>
   </div>

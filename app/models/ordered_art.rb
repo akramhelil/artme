@@ -1,5 +1,4 @@
 class OrderedArt < ApplicationRecord
   belongs_to :art
-  belongs_to :order
-
+  belongs_to :client
 end

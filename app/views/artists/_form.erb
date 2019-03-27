@@ -1,10 +1,11 @@
+<%= form_for @artist do |f| %>
+
 <% if flash[:errors] %>
   <% flash[:errors].each do |err| %>
   <li><%= err %></li>
   <% end %>
 <% end %>
 
-<%= form_for @artist do |f| %>
 
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
@@ -14,6 +15,12 @@
   <br>
   <%= f.label :email %>
   <%= f.text_field :email %>
+  <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %><br>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br>
   <br>
   <%= f.label :location %>
   <%= f.text_field :location%>

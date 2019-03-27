@@ -12,24 +12,4 @@
   </div>
 <% end %>
 
-<%= form_for @artist do |f| %>
-
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <br>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <br>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <br>
-  <%= f.label :location %>
-  <%= f.text_field :location%>
-  <br>
-  <%= f.label :bio %>
-  <br>
-  <%= f.text_area :bio, size: "60x10" %>
-  <br>
-  <%= f.submit%>
-
-<% end %>
+<%= render 'form' %>

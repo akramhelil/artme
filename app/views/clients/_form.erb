@@ -17,11 +17,18 @@
  <%=f.label :last_name%><br>
  <%= f.text_field :last_name %><br>
 
+ <%=f.label :password %><br>
+ <%= f.password_field :password %><br>
+
+ <%=f.label :password_confirmation %><br>
+ <%= f.password_field :password_confirmation %><br>
+
  <%=f.label :email%><br>
  <%= f.text_field :email %><br>
 
  <%=f.label :address%><br>
  <%= f.text_field :address %><br>
+
 
   <%= f.submit %>
 <% end %>
