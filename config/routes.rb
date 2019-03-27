@@ -19,16 +19,12 @@ Rails.application.routes.draw do
 
   get '/login/artist', to:'sessions#artist_new'
   post '/login/artist', to:'sessions#artist_login'
+  delete '/logout/artist', to: "sessions#artist_logout"
 
 
   get '/login', to:'sessions#new'
   delete '/logout', to:'sessions#client_logout'
   post '/login', to:'sessions#client_login'
-  post '/logout', to: "sessions#destroy"
-
-
-
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

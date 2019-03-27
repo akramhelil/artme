@@ -1,6 +1,7 @@
 class ArtsController < ApplicationController
   before_action :set_art, only: [:show, :edit, :update]
   before_action :find_the_arts, only: :show
+  # before_action :authorized_artist, only: [:edit, :new, :update, :destroy]
 
 
     def index
@@ -12,8 +13,10 @@ class ArtsController < ApplicationController
     end
 
     def create
-      @art = Art.new(art_params)
-        if @art.save
+      @art = Art.create(art_params)
+      @artists = Artist.all
+      # @art.artist_id = current_artist.id
+        if @art
           redirect_to "/arts/#{@art.id}"
         else
           render :new
@@ -22,8 +25,9 @@ class ArtsController < ApplicationController
 
     def show
     end
-    
+
     def edit
+
     end
 
     def update
@@ -40,10 +44,6 @@ class ArtsController < ApplicationController
       flash[:notice] = "deleted"
       redirect_to "/arts"
     end
-
-
-
-
 
     private
 

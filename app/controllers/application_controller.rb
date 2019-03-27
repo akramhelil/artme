@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  helper_method :cart
-  
+  helper_method :cart, :current_client, :current_artist
+
 
 
   def current_client#added in the current client
@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
  def current_artist
    return unless session[:artist_id]
-   @current_artist ||= Artist.find(session[:client_id])
+   @current_artist ||= Artist.find(session[:artist_id])
  end
 
 
@@ -30,9 +30,23 @@ class ApplicationController < ActionController::Base
     !!current_client
   end
 
-  def authorized
+  def artist_logged_in?
+    !!current_artist
+  end
+
+
+
+  def authorized_client
     if !client_logged_in?
+      flash[:notice] = "Please login!"
         redirect_to login_path
+    end
+  end
+
+  def authorized_artist
+    if !artist_logged_in?
+      flash[:notice] = "Please login as Artist!"
+      redirect_to "/login/artist"
     end
   end
 
