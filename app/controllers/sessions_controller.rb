@@ -49,4 +49,8 @@ class SessionsController < ApplicationController
     redirect_to "/login/artist"
   end
 
+  def order_history
+    
+  end
+
 end
