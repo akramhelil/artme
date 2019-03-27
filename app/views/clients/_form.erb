@@ -1,5 +1,11 @@
 <%= form_for @client do |f| %>
 
+  <% if flash[:errors] %>
+      <% flash[:errors].each do |err| %>
+      <li><%= err %></li>
+    <%end%>
+  <%end%>
+
 <% if @client.errors.any?%>
 <div class="" id="error_explanation">
       <h2> <%=pluralize(@client.errors.count, "error") %> prohibited from being saved:</h2>

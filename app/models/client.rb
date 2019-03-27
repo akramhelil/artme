@@ -1,14 +1,11 @@
 class Client < ApplicationRecord
   has_many :ordered_arts
-
-  has_secure_password
-
   has_many :arts, through: :ordered_arts
-
 
   validates :first_name, :last_name, :email, :address, presence: true
   validates :email, uniqueness: true
 
+  has_secure_password
   before_validation :make_capitalized
 
   def is_capitalized

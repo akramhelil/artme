@@ -1,5 +1,4 @@
 class ArtistsController < ApplicationController
-
   before_action :set_artist, only:[:show, :edit, :update, :destroy]
   before_action :authorized, only: [:edit, :update, :destroy]
 
@@ -9,7 +8,6 @@ class ArtistsController < ApplicationController
 
   def new
     @artist = Artist.new
-
   end
 
   def create
