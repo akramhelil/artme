@@ -1,20 +1,41 @@
-<style>
-h2 {
-  font-size: 2em;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+  <style>
+  table {
+    border: 1px solid black;
+    width: 50%;
+    border-radius: 5px;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  tr:hover {background-color:#f5f5f5;}
+
+  input[type=button], input[type=submit], input[type=reset] {
+  background-color: #015C78;
+  border: none;
+  color: white;
+  padding: 13px 30px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 5px;
 }
-</style>
+div.cartbutton {
+  margin-right: 310px;
+}
+h1 {
+  margin-left: 310px;
+}
+
+  </style>
 
 
-<h2>What's in Your Cart?</h2>
-<h3>Your Cart: </h3>
-<ol>
-<table>
+
+<h1>What's in Your Cart?</h1>
+<table style="background-color:white", align="center">
   <tr>
     <th>Art Name</th>
     <th>Quantity</th>
@@ -22,14 +43,15 @@ h2 {
  </tr>
  <tr>
      <% @cart_arr.each do |a|%>
-     <td><%=a[0]["title"]%></td>
+     <td><%= link_to a[0]["title"], "/arts/#{a[0]["id"]}"%></td>
      <td><%=a[1]%></td>
-     <td><%="$ #{a[0]["price"]*a[1]}"%></td>
+     <td><%="$ #{a[0]["price"].round(2)*a[1]}"%></td>
  </tr>
   <%end%>
 </table>
-
-
+&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="cartbutton", align="right">
   <%= button_to "Check Out", '/ordered_arts/new', {method: :get}  %>
-  <%= button_to "empty the cart", '/empty_the_cart', {method: :get} %>
-</ol>
+  &nbsp;&nbsp;
+  <%= button_to "Empty My Cart", '/empty_the_cart', {method: :get} %>
+</div>
