@@ -13,23 +13,30 @@
  *= require_tree .
  *= require_self
  */
-
+@import url(//db.onlinewebfonts.com/c/955ae876a7acdcec19eb9ea5e48ae554?family=BraggadocioW01);
 #logo {
   color: orange;
   text-align: center;
   font-size: 88px;
   font-style: bold;
-  font-family: Braggadocio
+  font-family: Braggadocio;
+
 }
 
 
  body {
-  background-image: linear-gradient(lightblue, white);
+background:
+radial-gradient(white 15%, transparent 16%) 0 0,
+radial-gradient(#AFEEEE 15%, transparent 16%) 8px 8px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+background-color:#ADD8E6;
+background-size:16px 16px;
 }
 
 
 p {
-  font-family: verdana;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 20px;
 }
 
@@ -51,6 +58,8 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -66,7 +75,7 @@ li a:hover {
   overflow: hidden;
   background-color: #015C78;
   text-align: center;
-
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 #login{
@@ -80,25 +89,20 @@ li a:hover {
   grid-template-columns: repear(auto-fill, minmax(200px, 1fr));
   grid-gap: 10px;
   image-orientation: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 
-.row {
+.column {
   display: flex;
   flex-wrap: wrap-reverse;
   padding: 0 20px;
-
 }
 
 /* Create two equal columns that sits next to each other */
-.column {
-  flex: 50%;
-  padding: 0 4px;
 
-}
 
 .column img {
   margin-top: 8px;
   vertical-align: middle;
-
 }

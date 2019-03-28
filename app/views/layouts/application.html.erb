@@ -25,8 +25,7 @@
         <%elsif current_client%>
         <li class="login-nav"><%= link_to "Log Out", '/logout', method: "delete" %></li>
           <li class="login-nav"><%= link_to "My Profile", client_path(current_client.id), method: :get %></li>
-          <li class="login-nav"><%= link_to "Cart", '/ordered_arts' %></li>
-          <li id="cart_count">(<%= cart.length %>)</li>
+          <li class="login-nav"><%= link_to "Cart(#{cart.length})" , '/ordered_arts' %></li>
         <% end %>
   </ul>
   </nav>

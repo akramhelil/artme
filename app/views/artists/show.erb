@@ -1,7 +1,7 @@
 <h1>Artist Show</h1>
 
 <p>
-  <%= image_tag(@artist.pro_pic_url,:size => "100x100")%>
+  <%= image_tag(@artist.pro_pic_url,:size => "200x200")%>
   <br>
   <br>
 <%= label_tag "Name: " %>
@@ -15,21 +15,17 @@
   <%= @artist.location %>
 
 </p>
-
-  <%= label_tag "Artworks for sale: " %> (<%=@artist.arts.length %>)
-
+  <%= label_tag "Artworks for sale: (#{@artist.arts.length}) " %>
   <br>
   <% @artist.arts.each do |a| %>
   <ul id="artist_artworks">
-
-  <%= image_tag("https://cdn4.iconfinder.com/data/icons/flat-icon-set/2133/flat_icons-graficheria.it-09.png", :size => "100x100") %>
+  <%= image_tag(a.img_url, :size => "100x100") %>
   </ul>
   <br>
   <p>
     <%=link_to a.title, a%>
   </p>
   <%end%>
-
 </p>
   <%= label_tag "Email: " %>
   <%= mail_to @artist.email %>
@@ -38,6 +34,7 @@
   <%= @artist.bio %>
     <% if current_artist && session[:artist_id] == @artist.id %>
 </p>
+
     <%= button_to "Delete", @artist , {method: :delete, data: { confirm: "Are you sure?" } }%>
     <%= link_to '<button type = "button">Edit</button>'.html_safe,
            edit_artist_path(@artist.id) %>

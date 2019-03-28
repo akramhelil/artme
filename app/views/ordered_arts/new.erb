@@ -1,11 +1,35 @@
+<style>
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+</style>
+
+
 <h1>Payment page</h1>
   <% price = @arts_in_the_cart.map {|a| a["price"] } %>
 
 <h3>Cart subtotal ( <%= pluralize(cart.length, "item")%> ): $ <%= price.inject(0, :+).round(2) %></h3>
 <ul>
-  <% @arts_in_the_cart.each do |art|%>
-  <li><%= art["title"] %>  $<%= art["price"].round(2)%></li>
-  <%end%>
+  <table>
+    <tr>
+      <th>Art Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+   </tr>
+   <tr>
+       <% @cart_arr.each do |a|%>
+       <td><%=a[0]["title"]%></td>
+       <td><%=a[1]%></td>
+       <td><%="$ #{a[0]["price"]*a[1]}"%></td>
+   </tr>
+    <%end%>
+  </table>
 </ul>
 
 
