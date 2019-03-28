@@ -1,15 +1,28 @@
-<h1>New Artist</h1>
+<style media="screen">
+  input[type="submit" i] {
+   background-color: #015C78;
+   border: none;
+   color: white;
+   padding: 13px 30px;
+   margin: 4px 2px;
+   cursor: pointer;
+   font-size: 15px;
+   border-radius: 5px;
+  }
 
-<div class="" id="error_explanation">
-<ul>
+</style>
 
-<% if @artist.errors.any? %>
+<div class="wrapper">
+  <h2>New Artist</h2>
+
+    <div class="" id="error_explanation">
+  <% if @artist.errors.any? %>
 <h2><%=pluralize(@artist.errors.count, "error") %> prohibited from being saved:</h2>
   <% @artist.errors.full_messages.each do |err| %>
   <li><%= err %></li>
   <% end %>
-  </ul>
   </div>
 <% end %>
 
 <%= render 'form' %>
+</div>

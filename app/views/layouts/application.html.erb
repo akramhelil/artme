@@ -9,10 +9,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+
     <div id="logo">Art Me</div>
 <nav>
 
       <ul>
+
         <li><%= link_to "Home", '/' %></li>
         <li><%= link_to "Artists", '/artists' %></li>
         <li> <%= link_to "Arts", arts_path %></li>
@@ -29,6 +31,10 @@
         <% end %>
   </ul>
 </nav>
+<%=form_tag(arts_path, method: :get) do%>
+  <%=submit_tag ("Search"), id: "search_button"%>
+  <%= text_field_tag(:search,params[:search]) %>
+<%end%>
     <br>
     <h3><%= flash[:notice] %></h3>
 

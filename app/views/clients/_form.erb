@@ -1,3 +1,17 @@
+
+<style media="screen">
+  input[type="submit" i] {
+   background-color: #015C78;
+   border: none;
+   color: white;
+   padding: 13px 30px;
+   margin: 4px 2px;
+   cursor: pointer;
+   font-size: 15px;
+   border-radius: 5px;
+  }
+
+</style>
 <%= form_for @client do |f| %>
 
   <% if flash[:errors] %>
@@ -35,6 +49,8 @@
  <%=f.label :address%><br>
  <%= f.text_field :address %><br>
 
+<div id="client_create_button">
 
   <%= f.submit %>
+</div>
 <% end %>
