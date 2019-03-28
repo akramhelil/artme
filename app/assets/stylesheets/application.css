@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 h1 {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
@@ -27,11 +28,19 @@ h3 {
   text-align: center;
   font-size: 700%;
   font-style: bold;
-  font-family: Braggadocio
+  font-family: Braggadocio;
+
 }
-body {
-  background-color: lightblue;
-}
+
+ body {
+background:
+radial-gradient(white 15%, transparent 16%) 0 0,
+radial-gradient(#AFEEEE 15%, transparent 16%) 8px 8px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+background-color:#ADD8E6;
+background-size:16px 16px;
+
 p {
 
   font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -59,6 +68,8 @@ li a{
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -75,7 +86,7 @@ li a:hover {
   overflow: hidden;
   background-color: #015C78;
   text-align: center;
-
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 #login{
@@ -85,3 +96,26 @@ li a:hover {
   padding: 0;
   overflow: hidden;
   background-color: #015C78;
+  
+#featured-arts{
+  display: grid;
+  grid-template-columns: repear(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+  image-orientation: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+
+.column {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  padding: 0 20px;
+}
+
+/* Create two equal columns that sits next to each other */
+
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}

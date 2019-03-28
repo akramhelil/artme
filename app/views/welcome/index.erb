@@ -1,11 +1,12 @@
+
 <h2>Featured Artists</h2>
 <div id="column_artist">
     <% @artists.each do |a|%>
     <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <%= image_tag "#{a.pro_pic_url}" %>
-          </div>
+           <div class="flip-card-front">
+            <%= image_tag(a.pro_pic_url,:size => "200x200")%>
+           </div>
           <div class="flip-card-back">
           <h3><%=link_to a.fullname, a%></h3>
           <p>"Makeing the world better place ..."</p>

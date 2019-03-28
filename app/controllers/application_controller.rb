@@ -10,33 +10,33 @@ class ApplicationController < ActionController::Base
    return unless session[:artist_id]
    @current_artist ||= Artist.find(session[:artist_id])
  end
+  
 
+  # def client_logged_in?
+  #   !!current_client
+  # end
+  #
+  # def artist_logged_in?
+  #   !!current_artist
+  # end
+  #
+  #
+  # def authorized_client
+  #   if !client_logged_in?
+  #     flash[:notice] = "Please login!"
+  #       redirect_to login_path
+  #   end
+  # end
+  #
+  # def authorized_artist
+  #   if !artist_logged_in?
+  #     flash[:notice] = "Are you a real Artist? Please login again!"
+  #     redirect_to "/login/artist"
+  #   end
+  # end
+  #
 
-  def client_logged_in?
-    !!current_client
-  end
-
-  def artist_logged_in?
-    !!current_artist
-  end
-
-
-  def authorized_client
-    if !client_logged_in?
-      flash[:notice] = "Please login!"
-        redirect_to login_path
-    end
-  end
-
-  def authorized_artist
-    if !artist_logged_in?
-      flash[:notice] = "Please login again! Are you an Artist?"
-      redirect_to "/login/artist"
-    end
-  end
-
-
-  ###cart
+  ###---cart
   def cart
     session[:cart] ||= []
   end
@@ -47,7 +47,8 @@ class ApplicationController < ActionController::Base
 
   def find_the_arts
     @arts_in_the_cart = cart
+    @cart_arr = cart.inject(Hash.new(0)) { |h,v| h[v] += 1; h }.map {|k,v| [k,v]}
   end
-  ####
+  ####---
 
 end
