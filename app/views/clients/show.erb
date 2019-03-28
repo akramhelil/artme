@@ -1,3 +1,27 @@
+<style media="screen">
+
+
+.showpage_button {
+display: flex;
+text-align: center;
+/* flex-direction: column; */
+align-items: center;
+justify-content: center;
+}
+
+input[type= button], input[type=submit], input[type=reset] {
+background-color: #015C78;
+border: none;
+color: white;
+padding: 13px 30px;
+margin: 4px 2px;
+cursor: pointer;
+font-size: 15px;
+border-radius: 5px;
+}
+</style>
+
+<div class="wrapper">
 
   <caption> <h2>Client Profile </h2></caption>
 
@@ -13,9 +37,12 @@
       <td> <%= @client.address%>  </td>
     </tr>
   </table>
-    <p><%= link_to '<button type = "button">Edit Your Account</button>'.html_safe, edit_client_path %>
+  <div class="showpage_button">
+
     <%= button_to "Delete Your Account", @client, {method: :delete, data: { confirm: "Are you sure?"}} %>
+    <%= button_to "Edit Profile", edit_client_path , method: :get %>
     </p>
+  </div>
   <br>
   <h2>Your Favorite Artist</h2>
   <%@client.my_art.uniq.each do |a|%>
@@ -23,5 +50,8 @@
   <%=link_to a.artist.fullname, "/artists/#{a.artist_id}"%>
   </p>
   <%end%>
+  <div class="showpage_button">
 
-<p><%= link_to '<button type = "button">Order Histroy</button>'.html_safe, "/clients/#{@client.id}/order_history" %>
+<%= button_to "Order Histroy", "/clients/#{@client.id}/order_history", method: :get %>
+</div>
+</div>

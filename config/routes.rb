@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'carts/index'
   resources :ordered_arts, only: [:index, :new]
   resources :arts
-  resources :clients
+  resources :clients, except: :index
   resources :artists
 
   root 'welcome#index'

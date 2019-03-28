@@ -13,18 +13,27 @@ margin: 4px 2px;
 cursor: pointer;
 font-size: 15px;
 border-radius: 5px;
+}
+div.bio {
+ background-color: lightblue;
+   width: 400px;
+   border: 25px;
+   padding: 25px;
+   margin: 25px;
+}
 
+.showpage_button {
 align-items: center;
 display: flex;
   }
 
-div.bio {
-  background-color: lightblue;
-    width: 400px;
-    border: 25px;
-    padding: 25px;
-    margin: 25px;
-
+.showpage_button {
+display: flex;
+text-align: center;
+/* flex-direction: column; */
+align-items: center;
+justify-content: center;
+}
 
 </style>
 
@@ -45,11 +54,14 @@ div.bio {
 
   <%= label_tag "Artworks for sale: (#{@artist.arts.length}) " %>
 </h3>
+<br>
+
 
   <br>
       <% @artist.arts.each do |a| %>
       <%=link_to image_tag(a.img_url, :size => "100x100"), a %>
     <%end%>
+
 <div class="bio" align="left">
   <h3><%=label_tag "Biography: " %></h3>
   <%= @artist.bio %>
