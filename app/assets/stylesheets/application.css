@@ -58,13 +58,23 @@ li a:hover {
   background-color: #111;
 }
 
+.login-nav {
+  list-style-type: none;
+  float: right;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #015C78;
+  text-align: center;
+
+}
+
 #login{
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #015C78;
-}
 #featured-arts{
   display: grid;
   grid-template-columns: repear(auto-fill, minmax(200px, 1fr));
