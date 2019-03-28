@@ -13,12 +13,16 @@ margin: 4px 2px;
 cursor: pointer;
 font-size: 15px;
 border-radius: 5px;
-
-
-.showpage_button {
-  margin-left: 310px;
-  margin-right: 1000px;
+align-items: center;
+display: flex;
 }
+div.bio {
+  background-color: lightblue;
+    width: 400px;
+    border: 25px;
+    padding: 25px;
+    margin: 25px;
+
 
 </style>
 
@@ -29,30 +33,31 @@ border-radius: 5px;
 <h1><%= @artist.fullname %></h1>
 <%= image_tag(@artist.pro_pic_url,:size => "200x200", :class => "profile_pic" )%>
 <br>
-<p>
+<h3>
   <label> ArtMe Artist Since</label>  <%= @artist.start_date %>
 
-</p>
 <p>
   <%= label_tag "🏠" %>
   <%= @artist.location %>
 </p>
 
   <%= label_tag "Artworks for sale: (#{@artist.arts.length}) " %>
-</br>
-
+</h3>
 
   <br>
       <% @artist.arts.each do |a| %>
       <%=link_to image_tag(a.img_url, :size => "100x100"), a %>
-
     <%end%>
-
-<p>  <%=label_tag "Biography: " %>
-  <%= @artist.bio %></p>
-<p><%= label_tag "Email: " %>  <%= mail_to @artist.email %> </p>
+<div class="bio" align="left">
+  <h3><%=label_tag "Biography: " %></h3>
+  <%= @artist.bio %>
 </div>
-<div class="showpage_button", align = "right">
+
+<p><%= label_tag "✉️" %>  <%= mail_to @artist.email %> </p>
+
+</div>
+
+<div class="showpage_button">
 <% if current_artist && session[:artist_id] == @artist.id %>
    <%= button_to "Edit", edit_artist_path(@artist.id) , {method: :get}%>
   <%= button_to "New Art", new_art_path, {method: :get}%>
