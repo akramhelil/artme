@@ -24,98 +24,88 @@ h3 {
 }
 
 #logo {
-  color: orange;
-  text-align: center;
-  font-size: 700%;
-  font-style: bold;
-  font-family: Braggadocio;
+ color: orange;
+ text-align: center;
+ font-size: 88px;
+ font-style: bold;
+ font-family: Braggadocio;
 
 }
 
- body {
-background:
-radial-gradient(white 15%, transparent 16%) 0 0,
-radial-gradient(#AFEEEE 15%, transparent 16%) 8px 8px,
-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-background-color:#ADD8E6;
-background-size:16px 16px;
+
+body {
+background: lightblue;
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
 
 p {
-
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 20px;
+ font-size: 20px;
+ font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
- ul {
-  list-style-type: none;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #015C78;
+ul {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+ overflow: hidden;
+ background-color: #015C78;
+ font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 li {
-  float: left;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+ float: left;
+ font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-li a{
-  display: block;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+li a {
+ display: block;
+ color: white;
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration: none;
+ font-family: "Trebuchet MS", Helvetica, sans-serif;
 
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: #111;
+ background-color: #111;
+ font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .login-nav {
-  list-style-type: none;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  float: right;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #015C78;
-  text-align: center;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+ list-style-type: none;
+ float: right;
+ margin: 0;
+ padding: 0;
+ overflow: hidden;
+ background-color: #015C78;
+ text-align: center;
+ font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 #login{
-  list-style-type: none;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #015C78;
-  
-#featured-arts{
-  display: grid;
-  grid-template-columns: repear(auto-fill, minmax(200px, 1fr));
-  grid-gap: 10px;
-  image-orientation: center;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+ overflow: hidden;
+ background-color: #015C78;
+ font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 
+
 .column {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  padding: 0 20px;
+ display: flex;
+ flex-wrap: wrap-reverse;
+ padding: 0 20px;
 }
 
 /* Create two equal columns that sits next to each other */
 
 
 .column img {
-  margin-top: 8px;
-  vertical-align: middle;
+ margin-top: 8px;
+ vertical-align: middle;
 }

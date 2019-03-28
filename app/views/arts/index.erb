@@ -1,9 +1,10 @@
 <div class="search">
-
-<%=form_tag(arts_path, method: :get) do%>
-<%=text_field_tag(:search,params[:search])%>
-<%=submit_tag ("Search")%>
-<%end%>
+  <%=form_tag(arts_path, method: :get) do%>
+  <%=text_field_tag(:search,params[:search])%>
+  <div class="">
+  <%=submit_tag ("Search")%>
+  </div>
+  <%end%>
 </div>
 <div class="notice">
 <%= flash[:notice]%>
@@ -11,16 +12,10 @@
 
 <h2>Arts List</h2>
 <% @arts.each do |a|%>
-
-<%= image_tag(a.img_url, :size => "200x200") %>
-<h2><%=link_to a.title, a %></h2>
-<h3><%= link_to a.artist.fullname, artist_path(a.artist.id) %></h3>
-<h3>$ <%= a.price %></h3>
-
 <div class="card">
-<%= image_tag(a.img_url, :size => "200x200") %>
-<br><%=link_to a.title, a %></br>
-<br><%= link_to a.artist.fullname, artist_path(a.artist.id) %></br>
-<br>$ <%= a.price %></br>
+  <%= image_tag(a.img_url, :size => "200x200") %>
+  <br><%=link_to a.title, a %></br>
+  <br><%= link_to a.artist.fullname, artist_path(a.artist.id) %></br>
+  <br>$ <%= a.price %></br>
 </div>
   <%end%>

@@ -8,10 +8,10 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <div id="logo">Art Me</div>
-    <nav>
+<nav>
+
       <ul>
         <li><%= link_to "Home", '/' %></li>
         <li><%= link_to "Artists", '/artists' %></li>
@@ -25,10 +25,10 @@
         <%elsif current_client%>
         <li class="login-nav"><%= link_to "Log Out", '/logout', method: "delete" %></li>
           <li class="login-nav"><%= link_to "My Profile", client_path(current_client.id), method: :get %></li>
-          <li class="login-nav"><%= link_to "Cart (#{cart.length})", '/ordered_arts' %></li> 
+          <li class="login-nav"><%= link_to "Cart (#{cart.length})", '/ordered_arts' %></li>
         <% end %>
   </ul>
-  </nav>
+</nav>
     <br>
     <h3><%= flash[:notice] %></h3>
 
