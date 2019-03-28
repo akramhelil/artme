@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
+h1 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+h3 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  text-align: center;
+}
 
 #logo {
   color: orange;
@@ -21,20 +29,18 @@
   font-style: bold;
   font-family: Braggadocio
 }
-
-
- body {
-  background-image: linear-gradient(lightblue, white);
+body {
+  background-color: lightblue;
 }
-
-
 p {
-  font-family: verdana;
+
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 20px;
 }
 
  ul {
   list-style-type: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -43,10 +49,12 @@ p {
 
 li {
   float: left;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-li a {
+li a{
   display: block;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -60,6 +68,7 @@ li a:hover {
 
 .login-nav {
   list-style-type: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   float: right;
   margin: 0;
   padding: 0;
@@ -71,6 +80,7 @@ li a:hover {
 
 #login{
   list-style-type: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   overflow: hidden;
