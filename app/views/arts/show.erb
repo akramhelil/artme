@@ -1,5 +1,7 @@
+<div class="wrapper">
 
-<%= image_tag(@art.img_url, :size => "200x200") %>
+<%= image_tag(@art.img_url, :size => "400x400") %>
+<hr>
 
     <p><%= label_tag "Title: " %>
     <%= @art.title %></p>
@@ -29,3 +31,4 @@
     <%= button_to "Delete", @art , {method: :delete, data: { confirm: "Are you sure?" } }%>
     <% end %>
   </div>
+</div>
