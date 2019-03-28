@@ -37,7 +37,7 @@ div.bio {
   <label> ArtMe Artist Since</label>  <%= @artist.start_date %>
 
 <p>
-  <%= label_tag "🏠" %>
+  <%= label_tag "📍" %>
   <%= @artist.location %>
 </p>
 
@@ -53,7 +53,7 @@ div.bio {
   <%= @artist.bio %>
 </div>
 
-<p><%= label_tag "✉️" %>  <%= mail_to @artist.email %> </p>
+<p><%= label_tag "📮" %>  <%= mail_to @artist.email %> </p>
 
 </div>
 
