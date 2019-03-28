@@ -4,17 +4,13 @@ class Art < ApplicationRecord
   belongs_to :artist
 
 
+  validates :title, :descrption, :price, :est_date, :img_url, presence: true
+  validates :title, uniqueness: { scope: [:artist_id], message: "The title is already taken."}
+
 
   def artst_name
     self.artist.fullname
   end
-
-
-
-
-  validates :title, :descrption, :price, :est_date, :img_url, presence: true
-  validates :title, uniqueness: { scope: [:artist_id], message: "The title is already taken."}
-
 
 
   def self.search(word)

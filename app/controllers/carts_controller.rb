@@ -4,7 +4,7 @@ class CartsController < ApplicationController
     art = Art.find_by(id: params[:id])
     flash[:notice] = "#{art.title} is in your cart!"
     add_art_to_the_cart(art)
-    redirect_to request.referrer
+    redirect_to art_path(art.id)
   end
 
   def empty
@@ -16,5 +16,6 @@ class CartsController < ApplicationController
     session[:cart] = nil
     render :check_out
   end
+
 
 end
