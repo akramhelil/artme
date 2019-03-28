@@ -26,11 +26,13 @@ h1 {
        <% @cart_arr.each do |a|%>
        <td><%=a[0]["title"]%></td>
        <td><%=a[1]%></td>
-       <td><%="$ #{a[0]["price"]*a[1]}"%></td>
+       <td><%="$ #{a[0]["price"].round(2)*a[1]}"%></td>
    </tr>
     <%end%>
   </table>
 </ul>
+
+<p><%= link_to '<button type = "button">Go Back to the cart </button>'.html_safe, "/ordered_arts"%> </p>
 
 
 

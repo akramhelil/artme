@@ -4,15 +4,26 @@
     <title>Artme</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
+  <style>
+      a.logo { color: orange;
+      text-decoration:none;
+      }
+
+      a.logo:hover {
+      color: orange;
+      text-decoration : none;
+      }
+  </style>
   <body>
-    <div id="logo">Art Me</div>
+    <div id="logo"> <a href ="/" class = "logo"> ArtMe </a> </div>
 <nav>
 
       <ul>
+
         <li><%= link_to "Home", '/' %></li>
         <li><%= link_to "Artists", '/artists' %></li>
         <li> <%= link_to "Arts", arts_path %></li>
@@ -21,9 +32,9 @@
           <li class="login-nav">
           <%= link_to "Log In", '/login', method: "get" %></li>
         <%elsif current_artist%>
-        <li class="login-nav"><%= link_to "Log Out", '/logout/artist', method: "delete" %></li>
+        <li class="login-nav"><%= link_to "Log Out", '/logout/artist', method: :delete %></li>
         <%elsif current_client%>
-        <li class="login-nav"><%= link_to "Log Out", '/logout', method: "delete" %></li>
+        <li class="login-nav"><%= link_to "Log Out", '/logout', {method: :delete} %></li>
           <li class="login-nav"><%= link_to "My Profile", client_path(current_client.id), method: :get %></li>
           <li class="login-nav"><%= link_to "Cart (#{cart.length})", '/ordered_arts' %></li>
         <% end %>
