@@ -17,6 +17,13 @@
 
 <h2>Featured Arts</h2>
 <% @arts.each do |a|%>
+
+<div class="row">
+  <div class="column">
+    <p><%= image_tag("https://cdn4.iconfinder.com/data/icons/flat-icon-set/2133/flat_icons-graficheria.it-09.png", :size => "200x200") %></p>
+    <p><%=link_to a.title, a%></p>
+    <p><%= a.artist.fullname%></p>
+  </div>
 <div class="column">
   <div class="row">
     <div class="flip-card">

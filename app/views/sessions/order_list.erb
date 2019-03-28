@@ -1,0 +1,28 @@
+
+<h2> You have <%=pluralize(@current_artist.today_order.length, "order")%> today.</h2>
+<h3>Popular Artworks</h3>
+<%@current_artist.popular_art.each do |a|%>
+<%=a[0]%>:  <%=pluralize(a[1],"order")%></br>
+<%end%>
+
+<h3>Ordered Art List</h3>
+<table>
+  <tr>
+    <th>order number</th>
+    <th>order date</th>
+    <th>Art ID</th>
+    <th>Art name</th>
+    <th>Client name</th>
+  </tr>
+
+    <% @current_artist.ordered_arts.each do |a|%>
+    <tr>
+    <td> <%= a.id%> </td>
+    <td> <%= a.created_at.strftime('%a, %B %d, %Y')%> </td>
+    <td> <%= a.art_id %> </td>
+    <td> <%= Art.find_by(id: a.art_id).title %> </td>
+    <td><%=Client.find_by(id: a.client_id).fullname%></td>
+    </tr>
+    <%end%>
+
+</table>

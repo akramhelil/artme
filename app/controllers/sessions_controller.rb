@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
   # skip_before_action :authorized, only: [:new, :client_login]
 
   def new
-
   end
 
   def artist_new
@@ -15,14 +14,12 @@ class SessionsController < ApplicationController
       session[:client_id] = @client.id
       current_client
       redirect_to root_path
-      flash[:notice] = "Wow Welcome again, you logged in as #{@client.first_name}"
+      flash[:notice] = "Hi, #{@client.first_name}!"
     else
       flash[:notice] = "Invalid Username or Password"
       redirect_to login_path
     end
-
   end
-
 
   def artist_login
     @artist = Artist.find_by(email: params[:email])
@@ -30,7 +27,7 @@ class SessionsController < ApplicationController
       session[:artist_id] = @artist.id
       current_artist
       redirect_to artist_path(@artist.id)
-      flash[:notice] = "Wow Welcome again, you logged in as #{@artist.first_name}"
+      flash[:notice] = "Hi, #{@artist.first_name}! You logged in as an artist."
     else
       flash[:notice] = "Artist Invalid Username or Password"
       redirect_to "/login/artist"
@@ -50,7 +47,12 @@ class SessionsController < ApplicationController
   end
 
   def order_history
-    
+    #ClientSide
+  end
+
+  def order_list
+    @current_artist = current_artist
+    #ArtistSide
   end
 
 end

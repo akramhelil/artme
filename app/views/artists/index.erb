@@ -1,5 +1,9 @@
 <h1>Artists </h1>
 <% @artists.each do |artist| %>
+<div class="card">
+  <%= image_tag(artist.pro_pic_url, :size => "200x200") %>
+  <br>
+  <h3><%=link_to artist.fullname, artist_path(artist.id) %></h3>
 <div class="column">
   <div class="row">
     <div class="flip-card">

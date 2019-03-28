@@ -1,5 +1,5 @@
 
-<img src="<%= @art.img_url %>" alt="">
+<%= image_tag(@art.img_url, :size => "200x200") %>
 
     <p><%= label_tag "Title: " %>
     <%= @art.title %></p>
@@ -24,7 +24,8 @@
     <% end %>
 
     <% if current_artist && session[:artist_id] == @art.artist_id %>
+
     <%= button_to "Edit", edit_art_path, {method: :get} %>
-    <%= button_to "Delete", @art , {method: :delete, data: { confirm: "Are you sure?" } }%>    <!-- add a button to add it to the cart -->
+    <%= button_to "Delete", @art , {method: :delete, data: { confirm: "Are you sure?" } }%>
     <% end %>
   </div>

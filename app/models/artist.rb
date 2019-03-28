@@ -32,4 +32,16 @@ class Artist < ApplicationRecord
     self.created_at.strftime('%B %Y')
   end
 
+
+
+  def popular_art
+    arr = self.ordered_arts.map {|a| a.art.title}
+    freq = arr.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+    freq.sort_by{|k,v| v}.reverse[0..4]
+  end
+
+  def today_order
+    self.ordered_arts.select {|a| a.created_at.localtime.day == Date.today.day && a.created_at.localtime.month == Date.today.month && a.created_at.localtime.year == Date.today.year}
+  end
+
 end
