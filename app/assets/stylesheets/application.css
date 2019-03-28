@@ -17,7 +17,7 @@
 #logo {
   color: orange;
   text-align: center;
-  font-size: 88px;
+  font-size: 700%;
   font-style: bold;
   font-family: Braggadocio
 }
@@ -75,30 +75,3 @@ li a:hover {
   padding: 0;
   overflow: hidden;
   background-color: #015C78;
-#featured-arts{
-  display: grid;
-  grid-template-columns: repear(auto-fill, minmax(200px, 1fr));
-  grid-gap: 10px;
-  image-orientation: center;
-}
-
-
-.row {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  padding: 0 20px;
-
-}
-
-/* Create two equal columns that sits next to each other */
-.column {
-  flex: 50%;
-  padding: 0 4px;
-
-}
-
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-
-}

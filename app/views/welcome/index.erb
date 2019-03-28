@@ -1,7 +1,6 @@
-<p><h2>Featured Artists</h2>
-<% @artists.each do |a|%>
-<div class="column_artist">
-  <div class="rows_artist">
+<h2>Featured Artists</h2>
+<div id="column_artist">
+    <% @artists.each do |a|%>
     <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -11,31 +10,23 @@
           <h3><%=link_to a.fullname, a%></h3>
           </div>
         </div>
-    </div>
-</div>
-<% end %>
+      </div>
+      <% end %>
+  </div>
 
 <h2>Featured Arts</h2>
+<div id="column_art">
 <% @arts.each do |a|%>
-
-<div class="row">
-  <div class="column">
-    <p><%= image_tag("https://cdn4.iconfinder.com/data/icons/flat-icon-set/2133/flat_icons-graficheria.it-09.png", :size => "200x200") %></p>
-    <p><%=link_to a.title, a%></p>
-    <p><%= a.artist.fullname%></p>
-  </div>
-<div class="column">
-  <div class="row">
-    <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <%= image_tag "#{a.img_url}" %>
-          </div>
-          <div class="flip-card-back">
-          <h3><%=link_to a.title, a%></h3>
-            <p><%= a.artist.fullname%></p>
-          </div>
+<div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <%= image_tag(a.img_url, :size => "200x200") %>
+      </div>
+    <div class="flip-card-back">
+      <h3><%=link_to a.title, a%></h3>
+      <p><%= a.artist.fullname%></p>
+      </div>
         </div>
     </div>
+  <% end %>
 </div>
-<% end %>
