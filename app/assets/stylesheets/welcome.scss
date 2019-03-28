@@ -1,39 +1,24 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.column_artist {
+#column_artist {
   display: flex;
   width: 100%;
-
 }
 
-/* Clear floats after image containers */
-.row_artist::after {
-  clear: left;
-  display: table;
-
+h2 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  text-shadow: 2px 2px 3px #000000;
 }
 
-#cart_count {
-  margin: 15px;
-  
-}
-
-.column {
+#column_art {
   display: flex;
   width: 100%;
-
-}
-
-/* Clear floats after image containers */
-.row::after {
-  clear: left;
-  display: table;
 }
 
 .flip-card {
   width: 100%;
-  padding: automatically;
+  padding: 5px;
   background-color: transparent;
   width: 200px;
   height: 200px;
@@ -71,7 +56,7 @@
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
-  color: lightblue;
+  background-color: #FF9933;
+  color: white;
   transform: rotateY(180deg);
 }

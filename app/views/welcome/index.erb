@@ -1,6 +1,7 @@
-<p><h2>Featured Artists</h2>
-<% @artists.each do |a|%>
-<div class="column_artist">
+
+<h2>Featured Artists</h2>
+<div id="column_artist">
+    <% @artists.each do |a|%>
     <div class="flip-card">
         <div class="flip-card-inner">
            <div class="flip-card-front">
@@ -8,27 +9,26 @@
            </div>
           <div class="flip-card-back">
           <h3><%=link_to a.fullname, a%></h3>
+          <p>"Makeing the world better place ..."</p>
           </div>
         </div>
-    </div>
-<% end %>
-</div>
-
-
+      </div>
+      <% end %>
+  </div>
 
 <h2>Featured Arts</h2>
+<div id="column_art">
 <% @arts.each do |a|%>
-<div class="column">
-    <div class="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <%= image_tag(a.img_url, :size => "200x200") %>
-            </div>
-            <div class="flip-card-back">
-               <h3><%=link_to a.title, a%></h3>
-              <p><%= a.artist.fullname%></p>
-            </div>
+<div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <%= image_tag(a.img_url, :size => "200x200") %>
+      </div>
+    <div class="flip-card-back">
+      <h3><%=link_to a.title, a%></h3>
+      <p><%= a.artist.fullname%></p>
+      </div>
         </div>
     </div>
-    <% end %>
+  <% end %>
 </div>

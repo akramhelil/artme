@@ -13,16 +13,24 @@
  *= require_tree .
  *= require_self
  */
-@import url(//db.onlinewebfonts.com/c/955ae876a7acdcec19eb9ea5e48ae554?family=BraggadocioW01);
+
+h1 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+h3 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  text-align: center;
+}
+
 #logo {
   color: orange;
   text-align: center;
-  font-size: 88px;
+  font-size: 700%;
   font-style: bold;
   font-family: Braggadocio;
 
 }
-
 
  body {
 background:
@@ -32,16 +40,16 @@ radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
 radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
 background-color:#ADD8E6;
 background-size:16px 16px;
-}
-
 
 p {
+
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 20px;
 }
 
  ul {
   list-style-type: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -50,10 +58,12 @@ p {
 
 li {
   float: left;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-li a {
+li a{
   display: block;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -69,6 +79,7 @@ li a:hover {
 
 .login-nav {
   list-style-type: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   float: right;
   margin: 0;
   padding: 0;
@@ -80,10 +91,12 @@ li a:hover {
 
 #login{
   list-style-type: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #015C78;
+  
 #featured-arts{
   display: grid;
   grid-template-columns: repear(auto-fill, minmax(200px, 1fr));
