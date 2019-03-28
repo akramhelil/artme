@@ -1,16 +1,9 @@
-<div class="search">
-  <%=form_tag(arts_path, method: :get) do%>
-  <%=text_field_tag(:search,params[:search])%>
-  <div class="">
-  <%=submit_tag ("Search")%>
-  </div>
-  <%end%>
-</div>
+
+  <h2>Arts List</h2>
 <div class="notice">
 <%= flash[:notice]%>
 </div>
 
-<h2>Arts List</h2>
 <% @arts.each do |a|%>
 <div class="card">
   <%= image_tag(a.img_url, :size => "200x200") %>

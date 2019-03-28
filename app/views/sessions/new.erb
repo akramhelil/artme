@@ -1,17 +1,27 @@
 
-<h1>Sign in</h1>
+
+<div class="wrapper">
+<h2>Sign in</h2>
 <!-- form will POST to ‘/login’ -->
+
 <%= form_tag(login_path) do %>
  <%= label_tag :email %>
  <%= text_field_tag :email %>
 <br>
  <%= label_tag :password %>
  <%= password_field_tag :password %>
-<br>
- <%= submit_tag 'Login' %>
- <br>
- <p>
-Need Art? <%= link_to "Join Us", new_client_path %></p>
-<% end %>
 
+<br>
+ <%= submit_tag 'Login', id: "login" %>
+ <br>
+
+<% end %>
+<br>
+<br>
+Need Art? <%= link_to "Join Us", new_client_path %>
+<br>
+<br>
+<h3>
 <%= link_to "Artist login", 'login/artist' %>
+</h3>
+</div>
