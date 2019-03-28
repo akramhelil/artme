@@ -4,60 +4,62 @@
 }
 
 
-.pic_column {
-  display: flex;
-  float: left;
-  width: 8%;
-  padding: 10px;
+input[type= button], input[type=submit], input[type=reset] {
+background-color: #015C78;
+border: none;
+color: white;
+padding: 13px 30px;
+margin: 4px 2px;
+cursor: pointer;
+font-size: 15px;
+border-radius: 5px;
+
+
+.showpage_button {
+
+
   margin-left: 310px;
-  margin-right: 310px;
+  margin-right: 1000px;
 }
-/* Clearfix (clear floats) */
 
 </style>
 
-<h1 align ="center">Artist Show</h1>
 
-<p>
+&nbsp;&nbsp;&nbsp;&nbsp;
   <div align ="center">
-  <%= image_tag(@artist.pro_pic_url,:size => "200x200", :class => "profile_pic" )%>
   <br>
-  <br>
-<%= label_tag "Name: " %><%= @artist.fullname %>
+<h1><%= @artist.fullname %></h1>
+<%= image_tag(@artist.pro_pic_url,:size => "200x200", :class => "profile_pic" )%>
+<br>
 <p>
   <label> ArtMe Artist Since</label>  <%= @artist.start_date %>
 
 </p>
-  <%= label_tag "Location: " %>
-  <%= @artist.location %>
 <p>
+  <%= label_tag "🏠" %>
+  <%= @artist.location %>
+</p>
 
   <%= label_tag "Artworks for sale: (#{@artist.arts.length}) " %>
+</br>
 
-</div>
 
   <br>
-    <div class="pic_column">
       <% @artist.arts.each do |a| %>
       <%=link_to image_tag(a.img_url, :size => "100x100"), a %>
-    </div>
+
     <%end%>
 
-
-<div align ="center">
-
-<br>
-  <%=label_tag "Biography: " %>
-  <%= @artist.bio %>
-    <% if current_artist && session[:artist_id] == @artist.id %>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<br>
-  <%= label_tag "Email: " %>
-  <%= mail_to @artist.email %>
+<p>  <%=label_tag "Biography: " %>
+  <%= @artist.bio %></p>
+<p><%= label_tag "Email: " %>  <%= mail_to @artist.email %> </p>
 </div>
-    <%= button_to "Delete", @artist , {method: :delete, data: { confirm: "Are you sure?" } }%>
-    <%= link_to '<button type = "button">Edit</button>'.html_safe,
-           edit_artist_path(@artist.id) %>
-   <%= link_to '<button type = "button">New Art</button>'.html_safe, new_art_path %>
-   <p><%= link_to '<button type = "button">See My Art Orders</button>'.html_safe, "/artists/#{@artist.id}/order_list" %></p>
+<div class="showpage_button", align = "right">
+<% if current_artist && session[:artist_id] == @artist.id %>
+   <%= button_to "Edit", edit_artist_path(@artist.id) , {method: :get}%>
+  <%= button_to "New Art", new_art_path, {method: :get}%>
+      <%= button_to "See My Art Orders",  "/artists/#{@artist.id}/order_list" , {method: :get}%>
+   <%= button_to "Delete My Account", @artist , {method: :delete, data: { confirm: "Are you sure?" } }%>
+
     <%end %>
+<div>
