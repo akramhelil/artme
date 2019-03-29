@@ -1,25 +1,69 @@
+<style>
+.profile_pic{
+  border-radius: 50%;
+}
+
+
+input[type= button], input[type=submit], input[type=reset] {
+background-color: #015C78;
+border: none;
+color: white;
+padding: 13px 30px;
+margin: 4px 2px;
+cursor: pointer;
+font-size: 15px;
+border-radius: 5px;
+display: flex;
+}
+
+
+div.bio {
+ background-color: lightblue;
+   width: 400px;
+   border: 25px;
+   padding: 25px;
+   margin: 25px;
+}
+
+
+.showpage_button {
+display: flex;
+text-align: center;
+/* flex-direction: column; */
+align-items: center;
+justify-content: center;
+}
+
+</style>
+
+
+
+
+
 <div class="wrapper">
 
 <%= image_tag(@art.img_url, :size => "400x400") %>
 <hr>
 
-    <p><%= label_tag "Title: " %>
-    <%= @art.title %></p>
+    <h3><%= label_tag "Title: " %>
+    <%= @art.title %></h3>
 
-    <p><%= label_tag "Artist Name: " %>
+    <h3><%= label_tag "Artist Name: " %>
     <%= link_to @art.artist.fullname, artist_path(@art.artist.id) %>
 
-    <p><%= label_tag "Price: " %>
-    $<%= @art.price %></p>
+    <h3><%= label_tag "Price: " %>
+    $<%= @art.price %></h3>
 
+    <div class="bio">
     <p><%= label_tag "Description: " %>
     <%= @art.descrption %></p>
+  </div>
 
-    <p><%= label_tag "Created Date: " %>
-    <%= @art.est_date.strftime("%B %d, %Y") %></p>
+    <h3><%= label_tag "Created Date: " %>
+    <%= @art.est_date.strftime("%B %d, %Y") %></h3>
 
-    <p><%= label_tag "Time Required:" %>
-    <%= @art.time_required %> Days</p>
+    <h3><%= label_tag "Time Required:" %>
+    <%= @art.time_required %> Days</h3>
 
     <% if current_client%>
     <%= button_to "Add to Cart", '/add_to_cart', {method: :patch,  params: {id: @art.id, name: @art.title, price: @art.price} } %>
