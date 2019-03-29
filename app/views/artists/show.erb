@@ -65,6 +65,8 @@ justify-content: center;
 </div>
 <p><%= label_tag "📮" %>  <%= mail_to @artist.email %> </p>
 </div>
+<div class="wrapper">
+
 <div class="showpage_button">
 <% if current_artist && session[:artist_id] == @artist.id %>
    <%= button_to "Edit", edit_artist_path(@artist.id) , {method: :get}%>
@@ -75,3 +77,4 @@ justify-content: center;
     <%end %>
     <hr>
 <div>
+</div>
