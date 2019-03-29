@@ -42,21 +42,18 @@ justify-content: center;
   <div align ="center">
   <br>
 <h1><%= @artist.fullname %></h1>
+<hr>
 <%= image_tag(@artist.pro_pic_url,:size => "200x200", :class => "profile_pic" )%>
 <br>
 <h3>
   <label> ArtMe Artist Since</label>  <%= @artist.start_date %>
-
 <p>
   <%= label_tag "📍" %>
   <%= @artist.location %>
 </p>
-
   <%= label_tag "Artworks for sale: (#{@artist.arts.length}) " %>
 </h3>
 <br>
-
-
   <br>
       <% @artist.arts.each do |a| %>
       <%=link_to image_tag(a.img_url, :size => "100x100"), a %>
@@ -66,11 +63,8 @@ justify-content: center;
   <h3><%=label_tag "Biography: " %></h3>
   <%= @artist.bio %>
 </div>
-
 <p><%= label_tag "📮" %>  <%= mail_to @artist.email %> </p>
-
 </div>
-
 <div class="showpage_button">
 <% if current_artist && session[:artist_id] == @artist.id %>
    <%= button_to "Edit", edit_artist_path(@artist.id) , {method: :get}%>
@@ -79,4 +73,5 @@ justify-content: center;
    <%= button_to "Delete My Account", @artist , {method: :delete, data: { confirm: "Are you sure?" } }%>
 
     <%end %>
+    <hr>
 <div>
