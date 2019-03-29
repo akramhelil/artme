@@ -34,7 +34,8 @@ class ArtistsController < ApplicationController
   end
 
   def destroy
-     @artist.destroy
+     current_artist.destroy
+     session.delete(:artist_id)
      @artists = Artist.all
      render :index
   end
@@ -47,6 +48,7 @@ class ArtistsController < ApplicationController
 
   def set_artist
     @artist = Artist.find(params[:id])
+
   end
 
 end

@@ -35,8 +35,9 @@ class ClientsController < ApplicationController
 
     def destroy
       set_client.destroy
+           session.delete(:artist_id)
       flash[:notice] = "deleted"
-      redirect_to "/clients"
+      redirect_to 
     end
 
   private

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
  def current_artist
+  
    return unless session[:artist_id]
    @current_artist ||= Artist.find(session[:artist_id])
  end
@@ -34,7 +35,7 @@ class ApplicationController < ActionController::Base
       redirect_to "/login/artist"
     end
   end
-  
+
 
   ###---cart
   def cart
