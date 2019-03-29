@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
       redirect_to "/login/artist"
     end
   end
-  
+
 
   ###---cart
   def cart

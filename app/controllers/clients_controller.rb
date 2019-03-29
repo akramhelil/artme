@@ -35,9 +35,8 @@ class ClientsController < ApplicationController
 
     def destroy
       set_client.destroy
-      @current_client = nil
       session[:client_id] = nil
-      flash[:notice] = "deleted"
+      flash[:notice] = "Your Account is deleted safely."
       redirect_to "/"
     end
 
