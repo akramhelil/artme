@@ -32,9 +32,9 @@ border-radius: 5px;
       <th>Address</th>
     </tr>
     <tr>
-      <td> <%= @client.fullname%></td>
-      <td> <%= @client.email%>  </td>
-      <td> <%= @client.address%>  </td>
+      <td> <%= @client.fullname %> </td>
+      <td> <%= @client.email %>  </td>
+      <td> <%= @client.address %>  </td>
     </tr>
   </table>
   <div class="showpage_button">
@@ -44,12 +44,12 @@ border-radius: 5px;
     </p>
   </div>
   <br>
-  <h2>Your Favorite Artist</h2>
-  <%@client.my_art.uniq.each do |a|%>
+  <h2>Your Favorite Artist </h2>
+  <% @client.my_art.uniq.each do |a| %>
   <p>
-  <%=link_to a.artist.fullname, "/artists/#{a.artist_id}"%>
+  <%= link_to a.artist.fullname, "/artists/#{a.artist_id}" %>
   </p>
-  <%end%>
+  <% end %>
   <div class="showpage_button">
 
 <%= button_to "Order Histroy", "/clients/#{@client.id}/order_history", method: :get %>

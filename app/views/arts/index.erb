@@ -8,7 +8,7 @@
 <% @arts.each do |a|%>
 <div class="card">
   <%= image_tag(a.img_url, :size => "200x200") %>
-  <br><%=link_to a.title, a %></br>
+  <br><%= link_to a.title, a %></br>
   <br><%= link_to a.artist.fullname, artist_path(a.artist.id) %></br>
   <br>$ <%= a.price %></br>
 </div>

@@ -55,9 +55,11 @@ justify-content: center;
     $<%= @art.price %></h3>
 
     <div class="bio">
-    <p><%= label_tag "Description: " %>
-    <%= @art.descrption %></p>
-  </div>
+      <p>
+        <%= label_tag "Description: " %>
+        <%= @art.descrption %>
+      </p>
+    </div>
 
     <h3><%= label_tag "Created Date: " %>
     <%= @art.est_date.strftime("%B %d, %Y") %></h3>

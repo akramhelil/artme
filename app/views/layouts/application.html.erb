@@ -6,10 +6,11 @@
     <%= csp_meta_tag %>
     <%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    
   </head>
   <style>
-      a.logo { color: orange;
+      a.logo { 
+        color: orange;
       text-decoration:none;
       }
 
@@ -22,33 +23,30 @@
     <div id="logo"> <a href ="/" class = "logo"> ArtMe </a> </div>
 
 <nav>
-
-      <ul>
-
-        <li><%= link_to "Home", '/' %></li>
-        <li><%= link_to "Artists", '/artists' %></li>
-        <li> <%= link_to "Arts", arts_path %></li>
-        <li><%= link_to "About", '/about' %></li>
-        <% if !current_client && !current_artist %>
-          <li class="login-nav">
-          <%= link_to "Log In", '/login', method: "get" %></li>
-        <%elsif current_artist%>
-        <li class="login-nav"><%= link_to "Log Out", '/logout/artist', method: :delete %></li>
-        <li class="login-nav"><%= link_to "My Profile", artist_path(current_artist.id), method: :get %></li>
-        <%elsif current_client%>
-        <li class="login-nav"><%= link_to "Log Out", '/logout', {method: :delete} %></li>
-          <li class="login-nav"><%= link_to "My Profile", client_path(current_client.id), method: :get %></li>
-          <li class="login-nav"><%= link_to "Cart (#{cart.length})", '/ordered_arts' %></li>
-        <% end %>
+  <ul>
+    <li><%= link_to "Home", '/' %></li>
+    <li><%= link_to "Artists", '/artists' %></li>
+    <li> <%= link_to "Arts", arts_path %></li>
+    <li><%= link_to "About", '/about' %></li>
+    <% if !current_client && !current_artist %>
+      <li class="login-nav">
+      <%= link_to "Log In", '/login', method: "get" %></li>
+    <% elsif current_artist%>
+    <li class="login-nav"><%= link_to "Log Out", '/logout/artist', method: :delete %></li>
+    <li class="login-nav"><%= link_to "My Profile", artist_path(current_artist.id), method: :get %></li>
+    <% elsif current_client%>
+    <li class="login-nav"><%= link_to "Log Out", '/logout', {method: :delete} %></li>
+      <li class="login-nav"><%= link_to "My Profile", client_path(current_client.id), method: :get %></li>
+      <li class="login-nav"><%= link_to "Cart (#{ cart.length })", '/ordered_arts' %></li>
+    <% end %>
   </ul>
 </nav>
-<%=form_tag(arts_path, method: :get) do%>
-  <%=submit_tag ("Search"), id: "search_button"%>
+<%= form_tag(arts_path, method: :get) do%>
+  <%= submit_tag ("Search"), id: "search_button"%>
   <%= text_field_tag(:search,params[:search]) %>
 <%end%>
     <br>
     <h3><%= flash[:notice] %></h3>
-
     <%= yield %>
   </body>
 </html>

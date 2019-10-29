@@ -42,12 +42,12 @@ h1 {
     <th>Price</th>
  </tr>
  <tr>
-     <% @cart_arr.each do |a|%>
+     <% @cart_arr.each do |a| %>
      <td><%= link_to a[0]["title"], "/arts/#{a[0]["id"]}"%></td>
      <td><%=a[1]%></td>
      <td><%="$ #{a[0]["price"].round(2)*a[1]}"%></td>
  </tr>
-  <%end%>
+  <% end %>
 </table>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <div class="cartbutton", align="right">

@@ -68,7 +68,7 @@ justify-content: center;
 <div class="wrapper">
 
 <div class="showpage_button">
-<% if current_artist && session[:artist_id] == @artist.id %>
+  <% if current_artist && session[:artist_id] == @artist.id %>
    <%= button_to "Edit", edit_artist_path(@artist.id) , {method: :get}%>
   <%= button_to "New Art", new_art_path, {method: :get}%>
       <%= button_to "See My Art Orders",  "/artists/#{@artist.id}/order_list" , {method: :get}%>

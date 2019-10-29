@@ -26,7 +26,7 @@ h3 {
 
 #logo {
  color: orange;
- text-align: center;
+ text-align: left;
  font-size: 88px;
  font-style: bold;
  font-family: Braggadocio;
@@ -47,15 +47,17 @@ p {
 ul {
  list-style-type: none;
  margin: 0;
+ color: white;
  padding: 0;
  overflow: hidden;
  background-color: #015C78;
  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-li {
+ul li {
  float: left;
  font-family: "Trebuchet MS", Helvetica, sans-serif;
+ color: white;
 }
 
 li a {
@@ -72,6 +74,7 @@ li a {
 li a:hover {
  background-color: #111;
  font-family: "Trebuchet MS", Helvetica, sans-serif;
+ color: white
 }
 
 .login-nav {
@@ -108,4 +111,7 @@ li a:hover {
 .column img {
  margin-top: 8px;
  vertical-align: middle;
+}
+nav li {
+  color: white;
 }
