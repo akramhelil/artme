@@ -28,6 +28,7 @@ class Client < ApplicationRecord
   end
 
   def my_art
+    byebug
     self.ordered_arts.map {|a| a.art}
   end
   # my_art.map {|a| a.artist.fullname}

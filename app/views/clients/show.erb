@@ -45,9 +45,10 @@ border-radius: 5px;
   </div>
   <br>
   <h2>Your Favorite Artist </h2>
-  <% @client.my_art.uniq.each do |a| %>
+  <% @client.arts.uniq.each do |a| %>
+  <% byebug %>
   <p>
-  <%= link_to a.artist.fullname, "/artists/#{a.artist_id}" %>
+  <%= link_to a.artist, "/artists/#{a.artist_id}" %>
   </p>
   <% end %>
   <div class="showpage_button">
